@@ -59,10 +59,17 @@
     }
     .brand-line::after { background: linear-gradient(to left, transparent, var(--gold)); }
 
+    .brand-logo-wrap {
+      display: inline-block;
+      height: 54px;
+      width: 95px;
+      overflow: hidden;
+    }
     .brand-logo {
       height: 54px;
       width: auto;
       display: block;
+      margin-left: -53px;
       filter: brightness(0) invert(1);
     }
 
@@ -260,9 +267,11 @@
 
   <header>
     <div class="brand-line">
-      <img class="brand-logo"
-           src="https://contiresorts.com/wp-content/themes/boliin/assets/images/logo-mobile.png"
-           alt="Conti Resorts" />
+      <div class="brand-logo-wrap">
+        <img class="brand-logo"
+             src="https://contiresorts.com/wp-content/uploads/2022/12/conti-resorts-logo-final-w.png"
+             alt="Conti Resorts" />
+      </div>
     </div>
     <p class="subtitle">Bodrum · Antalya · Kıbrıs</p>
   </header>
