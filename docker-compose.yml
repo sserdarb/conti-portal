@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  conti-portal:
+    build: .
+    container_name: conti-portal
+    restart: always
+    networks:
+      - coolify
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.conti-portal-http.entrypoints=http"
+      - "traefik.http.routers.conti-portal-http.rule=Host(`conti.innovmar.xyz`)"
+      - "traefik.http.routers.conti-portal-http.middlewares=redirect-to-https"
+      - "traefik.http.routers.conti-portal-https.entrypoints=https"
+      - "traefik.http.routers.conti-portal-https.rule=Host(`conti.innovmar.xyz`)"
+      - "traefik.http.routers.conti-portal-https.tls=true"
+      - "traefik.http.routers.conti-portal-https.tls.certresolver=letsencrypt"
+      - "traefik.http.services.conti-portal.loadbalancer.server.port=80"
+
+networks:
+  coolify:
+    external: true
